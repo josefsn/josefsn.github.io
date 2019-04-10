@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>URI 0002 - Seguidores e Seguidos</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="author" content="URI Online Judge; www.urionlinejudge.edu.br" />
+		<meta name="description" content="URI Online Judge - Problema 0002 - Seguidores e Seguidos" />
+
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="https://resources.urionlinejudge.com.br/repository/contest.css" />
+		
+	</head>
+	<body>
+		<div class="header">
+			<span>URI Online Judge | 0002</span>
+			<h1>Seguidores e Seguidos</h1>
+			<div>
+				<p>Por José Francisco dos Santos Neto, USP - Universidade de São Paulo <img src='https://resources.urionlinejudge.com.br/gallery/images/flags/br.gif' alt='BR' /> Brazil</p>
+			</div>
+			<strong>Timelimit: 1</strong>
+		</div>
+
+		<div class="problem">
+
+			<div class="description">
+				<p><strong>Teoria dos Grafos</strong></p>
+				<p>A teoria dos grafos é um ramo da matemática que estuda as relações entre os objetos de um determinado conjunto. Para tal são empregadas estruturas chamadas de grafos, G(V,E), onde V é um conjunto não vazio de objetos denominados vértices (ou nós) e E (do inglês Edges - arestas) é um subconjunto de pares não ordenados de V.</p>
+				<p>Dependendo da aplicação, arestas podem ou não ter direção, pode ser permitido ou não arestas ligarem um vértice a ele próprio e vértices e/ou arestas podem ter um peso (numérico) associado. Se as arestas têm uma direção associada (indicada por uma seta na representação gráfica) temos um digrafo (grafo orientado). Um grafo com um único vértice e sem arestas é conhecido como grafo trivial.</p>
+				<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Grafo_k4_plano.PNG"></p>
+				<p>Grafo com 4 vértices e 6 arestas (Fonte: Wikipedia).</p>
+				<p><strong>Matriz de Adjacência</strong></p>
+				<p>Uma matriz de adjacência é uma das formas de se representar um grafo.</p>
+				<p>Dado um grafo G com n vértices, podemos representá-lo em uma matriz n x n A(G)=[a<sub>ij</sub>] (ou simplesmente A). A definição precisa das entradas da matriz varia de acordo com as propriedades do grafo que se deseja representar, porém de forma geral o valor a<sub>ij</sub> guarda informações sobre como os vértices v<sub>i</sub> e v<sub>j</sub> estão relacionados (isto é, informações sobre a adjacência de v<sub>i</sub> e v<sub>j</sub>).</p>
+				<p>Para representar um grafo não direcionado, simples e sem pesos nas arestas, basta que as entradas a<sub>ij</sub> da matriz A contenham 1 se v<sub>i</sub> e v<sub>j</sub> são adjacentes e 0 caso contrário. Se as arestas do grafo tiverem pesos, a<sub>ij</sub> pode conter, ao invés de 1 quando houver uma aresta entre v<sub>i</sub> e v<sub>j</sub>, o peso dessa mesma aresta.				
+				<p>Por exemplo, o grafo e a matriz correspondente (Fonte: Wikipedia).</p>
+				<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/6n-graph2.svg/200px-6n-graph2.svg.png">
+				<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cad0438d93465924cb8fdd9f2c692e69a6ff5827"></p>
+				<p>Uma rede social pode ser representada por um grafo direcionado onde os vértices representam as pessoas e as arestas representam as ligações entre elas. A direção da aresta indica quem segue quem.</p>
+				<p><strong>O Programa</strong></p>
+				<p>Escreva um programa que, dado um grafo direcionado representando uma rede social, monte a respectiva matriz de adjacência e calcule:</p>
+				<ul>
+				<li>quantidade de seguidores das pessoas mais seguidas acompanhada das respecivas pessoas;</li>
+				<li>quantidade de seguidores das pessoas menos seguidas acompanhada das respecivas pessoas;</li>
+				<li>quantidade de seguidos das pessoas que mais seguem acompanhada das respecivas pessoas;</li>
+				<li>quantidade de seguidos das pessoas que menos seguem acompanhada das respecivas pessoas;</li>
+				</ul>
+				<p> e mostre as pessoas que se seguem mutuamente.</p>
+			</div>
+			<h2>Entrada</h2>
+
+			<div class="input">
+				<p>A entrada consiste em duas linhas:</p>
+				<ul>
+				<li>a primeira linha contendo uma sequência de nomes distintos separados por um caractere pipe "|", onde cada nome representa uma pessoa da rede social;</li>
+				<li>a segunda linha contendo uma sequência de pares de nomes separados por um caractere pipe "|", onde cada par representa um seguidor (primeiro nome) e um seguido (segundo nome).</li>
+				</ul>
+			</div>
+
+			<h2>Saída</h2>
+
+			<div class="output">
+				<p>A saída consiste em:</p>
+				<ul>
+				<li>uma matriz de adjacência (<strong>N x N</strong>) onde N é a quantidade de vértices do digrafo e cada elemento de uma linha da matriz é separado por um espaço;</li>
+				<li>quantidade de seguidores das pessoas mais seguidas acompanhada dos respecivos nomes das pessoas separados por um caractere pipe "|", onde os nomes devem ocorrer na mesma ordem da entrada dos vértices;</li>
+				<li>quantidade de seguidores das pessoas menos seguidas acompanhada dos respecivos nomes das pessoas separados por um caractere pipe "|", onde os nomes devem ocorrer na mesma ordem da entrada dos vértices;</li>
+				<li>quantidade de seguidos das pessoas que mais seguem acompanhada dos respecivos nomes das pessoas separados por um caractere pipe "|", onde os nomes devem ocorrer na mesma ordem da entrada dos vértices;</li>
+				<li>quantidade de seguidos das pessoas que menos seguem acompanhada dos respecivos nomes das pessoas separados por um caractere pipe "|", onde os nomes devem ocorrer na mesma ordem da entrada dos vértices;</li>
+				<li>nome das pessoas que se seguem mutuamente separado por caractere pipe "|", onde os nomes intra e entre pares devem ocorrer na mesma ordem da entrada dos vértices.</li>
+				</ul>
+				<p>Não esqueça de imprimir o fim de linha após o cada linha da saída, caso contrário, você receberá "Presentation Error".</p>
+			</div>
+
+			<div class="both"></div>
+
+			<table>
+				<thead>
+					<tr>
+						<td>Exemplo de Entrada</td>
+						<td>Exemplo de Saída</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="division">
+							<p>Maria|José|João|Pedro|Antônio|Francisco</p>
+							<p>José|Maria|Pedro|João|Francisco|Maria|Antônio|Pedro|Francisco|Pedro|Pedro|Antônio|João|Pedro</p>
+
+						</td>
+						<td>
+							<p>0 1 0 0 0 1</p>
+							<p>1 0 0 0 0 0</p>
+							<p>0 0 0 1 0 0</p>
+							<p>0 0 1 0 1 0</p>
+							<p>0 0 0 1 0 0</p>
+							<p>1 0 0 1 0 0</p>
+							<p>3 [Pedro]</p>
+							<p>1 José|João|Antônio|Francisco</p>
+							<p>2 Maria|Pedro|Francisco</p>
+							<p>1 José|João|Antônio</p>
+							<p>Maria|José|Maria|Francisco|João|Pedro|Pedro|Antônio</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		<div class="both"></div>
+
+			<p class="footer">
+				Exercício de Programa 2 da disciplina Introdução à Programação (ACH2001 - 2019) do curso de Sistemas de Informação (EACH-USP)
+			</p>
+		</div>
+	</body>
+</html>
